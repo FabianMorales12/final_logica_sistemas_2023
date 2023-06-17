@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> operacion </title>
+</head>
+<body>
+  <input type="number" id="input1" placeholder="Ingrese un número">
+  <input type="number" id="input2" placeholder="Ingrese un número">
+  <input type="number" id="input3" placeholder="Ingrese un número">
+
+  <button onclick="realizarOperacion()">Realizar operación</button>
+  <button onclick="concatenarValores()">Concatenar valores</button>
+
+  <script>
+    var resultadoOperacion = "";
+    var valoresConcatenados = "";
+
+    function realizarOperacion() {
+      var input1 = parseFloat(document.getElementById('input1').value);
+      var input2 = parseFloat(document.getElementById('input2').value);
+      var input3 = parseFloat(document.getElementById('input3').value);
+
+      if (input1 < input3) {
+        var resultado = input1 * input2 * input3;
+        var operacion = "Multiplicación";
+        resultadoOperacion = "Operación: " + operacion + ", Resultado: " + resultado;
+        document.getElementById('resultado').innerHTML = resultadoOperacion;
+      } else if (input2 === 0) {
+        var mayor = Math.max(input1, input3);
+        var menor = Math.min(input1, input3);
+        var resultado = mayor - menor;
+        var operacion = "Resta";
+        resultadoOperacion = "Operación: " + operacion + ", Resultado: " + resultado;
+        document.getElementById('resultado').innerHTML = resultadoOperacion;
+      } else {
+        document.getElementById('resultado').innerHTML = "No se cumple ninguna condición";
+      }
+    }
+
+    function concatenarValores() {
+      var input1 = parseFloat(document.getElementById('input1').value);
+      var input2 = parseFloat(document.getElementById('input2').value);
+      var input3 = parseFloat(document.getElementById('input3').value);
+
+      var repeticiones = input1 * input2 + input3;
+
+      for (var i = 0; i < repeticiones; i++) {
+        valoresConcatenados += input1 + input2 + input3;
+      }
+
+      document.getElementById('concatenado').innerHTML = valoresConcatenados;
+    }
+  </script>
+
+  <div id="resultado"></div>
+  <div id="concatenado"></div>
+</body>
+</html>
